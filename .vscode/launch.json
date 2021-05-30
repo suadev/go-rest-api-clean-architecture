@@ -9,7 +9,7 @@
             "type": "go",
             "request": "launch",
             "mode": "auto",
-            "program": "${workspaceFolder}\\src",
+            "program": "${workspaceFolder}/src",
             "port": 8083,
             "env": {},
             "args": []
