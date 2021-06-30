@@ -16,7 +16,7 @@ func (h *Handler) getProducts(context *gin.Context) {
 
 	products, err := h.service.GetProducts()
 	if err != nil {
-		context.JSON(http.StatusBadRequest, nil)
+		context.JSON(http.StatusBadRequest, err.Error())
 		return
 	}
 	context.JSON(http.StatusOK, products)
@@ -27,7 +27,7 @@ func (h *Handler) getProduct(context *gin.Context) {
 	id, _ := uuid.Parse(context.Param("id"))
 	product, err := h.service.GetProduct(id)
 	if err != nil {
-		context.JSON(http.StatusBadRequest, nil)
+		context.JSON(http.StatusBadRequest, err.Error())
 		return
 	}
 	context.JSON(http.StatusOK, product)

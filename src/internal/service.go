@@ -18,11 +18,7 @@ func NewService(repo *Repository) *Service {
 func (s *Service) CreateProduct(product *entity.Product) (*entity.Product, error) {
 	product.ID = uuid.New()
 	createdProduct, err := s.repo.Create(product)
-
-	if err != nil {
-		return createdProduct, err
-	}
-	return createdProduct, nil
+	return createdProduct, err
 }
 
 func (s *Service) BulkUpdate(products *[]entity.Product) error {
